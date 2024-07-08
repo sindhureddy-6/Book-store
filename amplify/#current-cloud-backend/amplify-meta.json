@@ -1,0 +1,171 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bookstore-prod-273d6-authRole",
+      "UnauthRoleArn": "arn:aws:iam::891376966507:role/amplify-bookstore-prod-273d6-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::891376966507:role/amplify-bookstore-prod-273d6-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bookstore-prod-273d6-deployment",
+      "UnauthRoleName": "amplify-bookstore-prod-273d6-unauthRole",
+      "StackName": "amplify-bookstore-prod-273d6",
+      "StackId": "arn:aws:cloudformation:us-east-1:891376966507:stack/amplify-bookstore-prod-273d6/57730c20-3a10-11ef-a95e-0affd47d56c1",
+      "AmplifyAppId": "d207rjb7z9nk5p"
+    }
+  },
+  "auth": {
+    "bookstoreffd12c19": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bookstore-prod-273d6-deployment/amplify-cfn-templates/auth/bookstoreffd12c19-cloudformation-template.json",
+        "logicalId": "authbookstoreffd12c19"
+      },
+      "lastPushTimeStamp": "2024-07-06T13:04:51.900Z",
+      "output": {
+        "UserPoolId": "us-east-1_UiktMzjLY",
+        "AppClientIDWeb": "4r09j6ifftcrupa1tm4h0m4mb4",
+        "AppClientID": "1dr0rp3un5cj5nap0n7vf7lrfg",
+        "IdentityPoolId": "us-east-1:c1526576-6a20-48a2-bd3f-63794a6fd768",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:891376966507:userpool/us-east-1_UiktMzjLY",
+        "IdentityPoolName": "bookstoreffd12c19_identitypool_ffd12c19__prod",
+        "UserPoolName": "bookstoreffd12c19_userpool_ffd12c19"
+      },
+      "lastPushDirHash": "NqU+bmmrIB9MayDnvFQ2WoaoWXE="
+    }
+  },
+  "storage": {
+    "BookImages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2024-07-06T13:04:51.914Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bookstore-prod-273d6-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storageBookImages"
+      },
+      "output": {
+        "BucketName": "bookstored1b9c3b09bfe480e8fcffaed83b48344273d6-prod",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "IP3Y9tAR2Muvnuw5oQRKrIRMnt4="
+    }
+  },
+  "function": {
+    "ProcessPayment": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2024-07-06T12:31:03.364Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-07-06T12:31:03.419Z",
+      "distZipFilename": "ProcessPayment-4e5950384c336d412f49-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bookstore-prod-273d6-deployment",
+        "s3Key": "amplify-builds/ProcessPayment-4e5950384c336d412f49-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bookstore-prod-273d6-deployment/amplify-cfn-templates/function/ProcessPayment-cloudformation-template.json",
+        "logicalId": "functionProcessPayment"
+      },
+      "lastPushTimeStamp": "2024-07-06T13:04:51.918Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::891376966507:role/bookstoreLambdaRole33c59fef-prod",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:891376966507:function:ProcessPayment-prod",
+        "Name": "ProcessPayment-prod",
+        "LambdaExecutionRole": "bookstoreLambdaRole33c59fef-prod"
+      },
+      "lastPushDirHash": "vFs89kRSNESsgsYAmeiXcXl+bmE="
+    },
+    "createOrder": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2024-07-06T13:03:35.381Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-07-06T13:03:35.452Z",
+      "distZipFilename": "createOrder-764366647956556b7a62-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-bookstore-prod-273d6-deployment",
+        "s3Key": "amplify-builds/createOrder-764366647956556b7a62-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bookstore-prod-273d6-deployment/amplify-cfn-templates/function/createOrder-cloudformation-template.json",
+        "logicalId": "functioncreateOrder"
+      },
+      "lastPushTimeStamp": "2024-07-06T13:04:54.451Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::891376966507:role/bookstoreLambdaRole772b5149-prod",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:891376966507:function:createOrder-prod",
+        "Name": "createOrder-prod",
+        "LambdaExecutionRole": "bookstoreLambdaRole772b5149-prod"
+      },
+      "lastPushDirHash": "q5B/xnDI5K3IKzBunEuS/kcqxqM="
+    }
+  },
+  "api": {
+    "mybookstore": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "bookstoreffd12c19"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authbookstoreffd12c19"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 365,
+                "apiKeyExpirationDate": "2025-07-06T11:34:03.458Z",
+                "description": "API key for Bookstore App - Used for accessing public read-only endpoints"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "dev2cqvcpva4xdyt7lfsw72doy",
+        "GraphQLAPIEndpointOutput": "https://qwl45vwlf5daxp2ud2tbjr4tle.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-zv6f7jj4sre5ncuqoeawodotqe"
+      },
+      "lastPushTimeStamp": "2024-07-06T13:04:51.930Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-bookstore-prod-273d6-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apimybookstore"
+      },
+      "lastPushDirHash": "v12OqnphvyVXj2n7MW/pd1r7omI="
+    }
+  }
+}
