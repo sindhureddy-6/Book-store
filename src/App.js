@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Amplify
+import { Amplify } from 'aws-amplify'
+import { BookProvider } from './context/books';
+import { CartProvider } from './context/cart';
+// Pages
+import Home from './pages/Home';
+import Error from './pages/Error';
+import Books from './pages/Books';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import BookDetails from './pages/BookDetails';
+import Admin from './pages/Admin';
 
-function App() {
+// Components
+import Header from './components/Header';
+
+// Amplify Configurations
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+       <Route path="/" element={<BookProvider><Home /></BookProvider>} />
+        <Route path="/cart" element={<CartProvider><Cart /></CartProvider>}/>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/books" element={<BookProvider><Books/></BookProvider>}/>
+        <Route path="/books/:id" element={<BookDetails />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Router>
   );
 }
 
