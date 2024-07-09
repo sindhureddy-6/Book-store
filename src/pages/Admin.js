@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { generateClient } from 'aws-amplify/api';
-import { uploadData, downloadData } from 'aws-amplify/storage';
+import { uploadData, getUrl} from 'aws-amplify/storage';
 import { Authenticator} from '@aws-amplify/ui-react';
-import {Amplify} from 'aws-amplify';
+// import {Amplify} from 'aws-amplify';
 import { createBook } from '../api/mutations'
 import config from '../aws-exports'
+import '@aws-amplify/ui-react/styles.css';
 
 const {
     aws_user_files_s3_bucket_region: region,
@@ -15,7 +16,7 @@ const client = generateClient();
 
 const Admin = () => {
     const [image, setImage] = useState(null);
-    const [bookDetails, setBookDetails] = useState({ title: "", description: "", image: "", author: "", price: "" });
+    const [bookDetails, setBookDetails] = useState({ title: "", description: "", image: "", author: "", price: "",featured: false });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,12 +24,14 @@ const Admin = () => {
             if (!bookDetails.title || !bookDetails.price) return
             await client.graphql({
               query: createBook,
+              authMode:"userPool",
               variables: {
              input: bookDetails
              }
             });
-            console.log("book created!!!!");
-            setBookDetails({ title: "", description: "", image: "", author: "", price: "" })
+          console.log("book created!!!!");
+           setImage(null);
+            setBookDetails({ title: "", description: "", image: "", author: "", price: "",featured: false })
         } catch (err) {
             console.log('error creating todo:', err)
         }
@@ -40,8 +43,8 @@ const Admin = () => {
         const file = e.target.files[0];
         const extension = file.name.split(".")[1];
         const name = file.name.split(".")[0];
-        const key = `images/${uuidv4()}${name}.${extension}`;
-        const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
+        const key = `public/images/${uuidv4()}${name}.${extension}`;
+        const url = `https://${bucket}.s3.${region}.amazonaws.com/${key}`
         try {
             // Upload the file to s3 with public access level. 
         const operation = uploadData({
@@ -54,10 +57,10 @@ const Admin = () => {
         });
          await operation.result;
             // Retrieve the uploaded file to display
-            const { data } = await downloadData({ path: key, options: { level: 'public' } }).result;
+          const result = await getUrl({ path: key });
             console.log("getting data from bucket");
-            console.log(data);
-            setImage(data);
+            console.log(result.url);
+            setImage(result.url);
             setBookDetails({ ...bookDetails, image: url });
         } catch (err) {
             console.log(err);

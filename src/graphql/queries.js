@@ -9,37 +9,6 @@ export const getOrder = /* GraphQL */ `
       date
       total
       books {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -70,19 +39,6 @@ export const listOrders = /* GraphQL */ `
         user
         date
         total
-        books {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -114,36 +70,6 @@ export const bookOrdersByBook_idAndOrder_id = /* GraphQL */ `
         id
         book_id
         order_id
-        book {
-          id
-          title
-          description
-          image
-          author
-          featured
-          price
-          orders {
-            nextToken
-            __typename
-          }
-          createdAt
-          updatedAt
-          __typename
-        }
-        order {
-          id
-          user
-          date
-          total
-          books {
-            nextToken
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -175,36 +101,6 @@ export const bookOrdersByOrder_idAndBook_id = /* GraphQL */ `
         id
         book_id
         order_id
-        book {
-          id
-          title
-          description
-          image
-          author
-          featured
-          price
-          orders {
-            nextToken
-            __typename
-          }
-          createdAt
-          updatedAt
-          __typename
-        }
-        order {
-          id
-          user
-          date
-          total
-          books {
-            nextToken
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -237,19 +133,6 @@ export const ordersByUserAndDate = /* GraphQL */ `
         user
         date
         total
-        books {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -271,37 +154,6 @@ export const getBook = /* GraphQL */ `
       featured
       price
       orders {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -334,19 +186,6 @@ export const listBooks = /* GraphQL */ `
         author
         featured
         price
-        orders {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename

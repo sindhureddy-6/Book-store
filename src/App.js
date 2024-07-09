@@ -17,8 +17,10 @@ import Admin from './pages/Admin';
 import Header from './components/Header';
 
 // Amplify Configurations
-import awsExports from './aws-exports';
-Amplify.configure(awsExports);
+import config from './aws-exports.js';
+
+Amplify.configure(config);
+
 
 const App = () => {
   return (
@@ -29,7 +31,7 @@ const App = () => {
         <Route path="/cart" element={<CartProvider><Cart /></CartProvider>}/>
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/books" element={<BookProvider><Books/></BookProvider>}/>
-        <Route path="/books/:id" element={<BookDetails />} />
+        <Route path="/books/:id" element={<CartProvider><BookProvider><BookDetails /></BookProvider></CartProvider>} />
         <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<Error />} />
       </Routes>

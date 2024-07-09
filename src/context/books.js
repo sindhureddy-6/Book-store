@@ -39,7 +39,8 @@ const BookProvider = ({ children }) => {
       // Switch authMode to API_KEY for public access
       const { data } = await client.graphql({
         query: listBooks,
-        authMode: "da2-sf5hoep7bfhptaulnczto6ohbu"
+        authMode: "apiKey",
+        // API_KEY: "da2-gr3nnjasn5awlbq7mttszn5ewq"
       });
       const books = data.listBooks.items;
       const featured = books.filter((book) => {

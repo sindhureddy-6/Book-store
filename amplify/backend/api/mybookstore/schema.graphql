@@ -1,3 +1,6 @@
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public, operations: [read] }
+}
 type Book
   @model(subscriptions: null)
   @auth(
@@ -7,7 +10,7 @@ type Book
       # allow all authenticated users to view books
       { allow: private, operations: [read] }
       # allow all guest users (not authenticated) to view books
-      { allow: public, operations: [read] }
+      { allow: public, operations: [read], }
     ]
   ) {
   id: ID! @primaryKey
@@ -30,8 +33,8 @@ type BookOrder
     ]
   ) {
   id: ID!
-  book_id: ID!  @index(name: "byBook", sortKeyFields: ["order_id"])
-  order_id: ID!  @index(name: "byOrder",sortKeyFields: ["book_id"])
+  book_id: ID! @index(name: "byBook", sortKeyFields: ["order_id"])
+  order_id: ID! @index(name: "byOrder", sortKeyFields: ["book_id"])
   book: Book @belongsTo(fields: ["book_id"])
   order: Order @belongsTo(fields: ["order_id"])
 }
@@ -45,10 +48,9 @@ type Order
       # allow admins to view orders
       { allow: groups, groups: ["Admin"] }
     ]
-  )
-  {
+  ) {
   id: ID! @primaryKey
-  user: String!  @index(name: "byUser", sortKeyFields: ["date"]) 
+  user: String! @index(name: "byUser", sortKeyFields: ["date"])
   date: String
   total: Float
   books: [BookOrder] @hasMany(indexName: "byOrder", fields: ["id"])

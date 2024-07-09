@@ -20,37 +20,6 @@ export const createBook = /* GraphQL */ `
       featured
       price
       orders {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -74,37 +43,6 @@ export const updateBook = /* GraphQL */ `
       featured
       price
       orders {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -128,37 +66,6 @@ export const deleteBook = /* GraphQL */ `
       featured
       price
       orders {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -185,19 +92,6 @@ export const createBookOrder = /* GraphQL */ `
         author
         featured
         price
-        orders {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename
@@ -207,19 +101,6 @@ export const createBookOrder = /* GraphQL */ `
         user
         date
         total
-        books {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -249,19 +130,6 @@ export const updateBookOrder = /* GraphQL */ `
         author
         featured
         price
-        orders {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename
@@ -271,19 +139,6 @@ export const updateBookOrder = /* GraphQL */ `
         user
         date
         total
-        books {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -313,19 +168,6 @@ export const deleteBookOrder = /* GraphQL */ `
         author
         featured
         price
-        orders {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename
@@ -335,19 +177,6 @@ export const deleteBookOrder = /* GraphQL */ `
         user
         date
         total
-        books {
-          items {
-            id
-            book_id
-            order_id
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         customer
@@ -371,37 +200,6 @@ export const createOrder = /* GraphQL */ `
       date
       total
       books {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -423,37 +221,6 @@ export const updateOrder = /* GraphQL */ `
       date
       total
       books {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }
@@ -475,37 +242,6 @@ export const deleteOrder = /* GraphQL */ `
       date
       total
       books {
-        items {
-          id
-          book_id
-          order_id
-          book {
-            id
-            title
-            description
-            image
-            author
-            featured
-            price
-            createdAt
-            updatedAt
-            __typename
-          }
-          order {
-            id
-            user
-            date
-            total
-            createdAt
-            updatedAt
-            customer
-            __typename
-          }
-          createdAt
-          updatedAt
-          customer
-          __typename
-        }
         nextToken
         __typename
       }

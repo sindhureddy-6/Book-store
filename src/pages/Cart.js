@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/cart";
-// import { FiChevronUp } from "react-icons/fi";
-// import { FiChevronDown } from "react-icons/fi";
+import { FiChevronUp } from "react-icons/fi";
+// import { IoIosArrowDropupCircle } from "react-icons/io";
+import { FiChevronDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -27,9 +28,9 @@ const Cart = () => {
               <p>$ {price}</p>
             </div>
             <div className="amount">
-              <button onClick={() => increaseAmount(id)}>upArrow</button>
+              <button onClick={() => increaseAmount(id)}><FiChevronUp/></button>
               <p>{amount}</p>
-              <button onClick={() => decreaseAmount(id, amount)}>DownArrow</button>
+              <button onClick={() => decreaseAmount(id, amount)}><FiChevronDown/></button>
             </div>
           </article>
         ))}

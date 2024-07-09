@@ -33,14 +33,21 @@ const CartProvider = ({ children }) => {
   };
 
   const addToCart = (book) => {
+    // console.log("adding to cart....");
+    // console.log("book",book)
     const { id, title, price, image } = book;
-    const cartItem = [...cart].find((item) => item.id === id);
+    const cartItem = cart.find((item) => item.id === id);
+    // console.log(cartItem);
     if (cartItem) {
       increaseAmount(id);
     } else {
+      
       const cartItems = [...cart, { id, title, image, price, amount: 1 }];
+      console.log(cartItems);
       setCart(cartItems);
+      //  console.log(cart);
     }
+    // console.log(cart);
   };
 
   const clearCart = () => {
